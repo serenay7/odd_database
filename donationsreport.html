@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+    <head>
+        <meta charset="UTF-8">
+        <title>Total Monthly Donation Report</title>
+        <link rel="stylesheet" href="../static/style.css">
+		<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="#" />
+    </head>
+	<body>
+		<div class="registercontent" align="center">
+			<div class="registertop">
+				<h1>Total Monthly Donation Report</h1>
+			</div>
+			<br></br>
+				 <p><b><a href=homepage.html>Return to Homepage</a></b> || <b><a href=reportmenu.html>Return to Reports Menu</a></b></p>
+				 <br>
+				 <p>Total monthly donations received for a selected time period and selected scholarship programs.
+				 <br> The report also gives the total amount donated during the selected period. </p> <br>
+				 
+			<div class="registerbottom">
+				<form action="{{ url_for('donationsreport')}}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div></br></br>
+					<p><b><center>Current Scholarship Programs</center></b></p>
+					{% for ss in avss %}
+						<input type="checkbox" id={{ss[1]}} name={{ss[1]}} value={{ss[1]}}>
+						<label for={{ss[1]}}>{{ss[0]}}</label><br></br>
+					{%- endfor %}
+					
+					
+					<p><b><center>Beginning Date</center></b></p>
+					<input type="date" id="beginningdate" name="beginningdate" required></br></br>
+					<p><b><center>End Date</center></b></p>
+					<input type="date" id="enddate" name="enddate" required></br></br>
+					<input type="submit" class="btn" value="Submit"></br></br>
+					
+					<input type="button" class="btn" value="Download CSV File" onclick="DownloadFile('donationsreport1.csv')" /></br></br>
+					
+					<script type="text/javascript">
+						function DownloadFile(fileName) {
+							//Set the File URL.
+							var url = "csv/" + fileName;
+				 
+							//Create XMLHTTP Request.
+							var req = new XMLHttpRequest();
+							req.open("GET", url, true);
+							req.responseType = "blob";
+							req.onload = function () {
+								//Convert the Byte Data to BLOB object.
+								var blob = new Blob([req.response], { type: "application/octetstream" });
+				 
+								//Check the Browser type and download the File.
+								var isIE = false || !!document.documentMode;
+								if (isIE) {
+									window.navigator.msSaveBlob(blob, fileName);
+								} else {
+									var url = window.URL || window.webkitURL;
+									link = url.createObjectURL(blob);
+									var a = document.createElement("a");
+									a.setAttribute("download", fileName);
+									a.setAttribute("href", link);
+									document.body.appendChild(a);
+									a.click();
+									document.body.removeChild(a);
+								}
+							};
+							req.send();
+						};
+					</script>
+								
+				</form>
+			
+			</div>
+			<br></br>
+			<div id="table1"></div>
+			<input type="button" class="btn" value="Download CSV File" onclick="DownloadFile('donationsreport2.csv')" /></br></br>
+			<br></br>
+			<div id="table2"></div>
+    </div>
+	<!-- <div id="table"></div> -->
+    </div>
+	<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script>
+			
+	const tableDiv1 = document.getElementById('table1');
+	const tableDiv2 = document.getElementById('table2');		
+			
+    new gridjs.Grid({
+	  columns: ['Year', 'Month', 'Name', 'Payment'],
+	  data: {{ table_data1|tojson }}
+	}).render(tableDiv1);
+
+    new gridjs.Grid({
+	  columns: ['Total Donation'],
+	  data: {{ table_data2|tojson }}
+	}).render(tableDiv2);	
+    </script> 
+	</body>
+	
+</html>

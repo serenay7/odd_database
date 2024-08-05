@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+    <head>
+        <meta charset="UTF-8">
+        <title>Number of Scholarship Recipients Report</title>
+        <link rel="stylesheet" href="../static/style.css">
+		<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="#" />
+    </head>
+	
+	<body>
+		<div class="registercontent" align="center">
+			<div class="registertop">
+				<h1>Number of Scholarship Recipients Report</h1>
+			</div>
+			<br></br>
+			<p><b><a href=homepage.html>Return to Homepage</a></b> || <b><a href=reportmenu.html>Return to Reports Menu</a></b></p>
+			
+			<!-- changing below -->
+			<div class="registerbottom">
+				<form action="{{ url_for('numofrecipients')}}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div></br></br>
+					<!-- <div class="avss">{{ avss }}</div></br></br> -->
+					<p><b><center>Beginning Date</center></b></p>
+					<input type="date" id="beginningdate" name="beginningdate" required></br></br>
+					<p><b><center>End Date</center></b></p>
+					<input type="date" id="enddate" name="enddate" required></br></br>
+					<input type="submit" class="btn" value="Submit"></br></br>
+					
+					<input type="button" class="btn" value="Download CSV File" onclick="DownloadFile('numofrecipients.csv')" /></br></br>
+					<script type="text/javascript">
+						function DownloadFile(fileName) {
+							//Set the File URL.
+							var url = "csv/" + fileName;
+				 
+							//Create XMLHTTP Request.
+							var req = new XMLHttpRequest();
+							req.open("GET", url, true);
+							req.responseType = "blob";
+							req.onload = function () {
+								//Convert the Byte Data to BLOB object.
+								var blob = new Blob([req.response], { type: "application/octetstream" });
+				 
+								//Check the Browser type and download the File.
+								var isIE = false || !!document.documentMode;
+								if (isIE) {
+									window.navigator.msSaveBlob(blob, fileName);
+								} else {
+									var url = window.URL || window.webkitURL;
+									link = url.createObjectURL(blob);
+									var a = document.createElement("a");
+									a.setAttribute("download", fileName);
+									a.setAttribute("href", link);
+									document.body.appendChild(a);
+									a.click();
+									document.body.removeChild(a);
+								}
+							};
+							req.send();
+						};
+					</script>		
+				</form>
+			</div>
+			<br></br>
+			<div id="table"></div>
+		</div>
+		<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+		<script>
+		
+		const tableDiv = document.getElementById('table');
+		
+		console.log({{ data1 }})
+		
+		new gridjs.Grid({
+		  columns: ['Year', 'Month', 'Count'],
+		  data: {{ data1 }}
+		}).render(tableDiv);
+		
+		</script>
+		
+	</body>

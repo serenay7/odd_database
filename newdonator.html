@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Donator</title>
+        <link rel="stylesheet" href="../static/style.css">  
+		<meta content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="#" />
+    </head>
+    <body>
+			<div class="registercontent" align="center">
+				<div class="registertop">
+					<h1>Add New Donator</h1>
+				</div>
+				<div class="registerbottom">
+				  <form action="{{ url_for('newdonator')}}" method="post" autocomplete="off">
+				  <br></br>
+				 <p><b><a href=homepage.html>Return to Homepage</a></b></p>
+				 <br></br>
+				<div class="msg">{{ msg }}</div>
+				<!-- <p><b><center>Donator ID</center></b></p>
+				<input type="text" name="DonatorID" placeholder="" class="textbox" id="DonatorID" required></br></br> -->
+				<p><b><center>Name</center></b></p>
+				<input type="text" name="Name" placeholder="" class="textbox" id="Name" required></br></br>
+				<p><b><center>Address</center></b></p>
+				<input type="text" name="Address" placeholder="" class="textbox" id="Address" required></br></br>
+				<p><b><center>Phone Number</center></b></p>
+				<input type="text" name="PhoneNumber" placeholder="" class="textbox" id="PhoneNumber" required></br></br>
+				<p><b><center>Email</center></b></p>
+				<input type="text" name="Email" placeholder="xxx@yyy.zz" class="textbox" id="Email" required></br></br>
+				<p><b><center>Citizen ID</center></b></p>
+				<input type="text" name="CitizenID" placeholder="" class="textbox" id="CitizenID" required></br></br>
+				<p><b><center>Scholarship ID</center></b></p>
+				<input type="text" name="ScholarshipID" placeholder="" class="textbox" id="ScholarshipID" required></br></br>				
+				<input type="submit" class="btn" value="Submit">
+				<br></br>
+				<br></br>
+				  </form>
+				</div>
+			</div>
+    </body>
+</html>
+

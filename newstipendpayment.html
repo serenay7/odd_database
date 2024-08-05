@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Stipend Payment</title>
+        <link rel="stylesheet" href="../static/style.css"> 
+		<meta content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="#" />		
+    </head>
+    <body>
+			<div class="registercontent" align="center">
+				<div class="registertop">
+					<h1>Add New Stipend Payment</h1>
+				</div>
+				<div class="registerbottom">
+				  <form action="{{ url_for('newstipendpayment')}}" method="post" autocomplete="off">
+				  <br></br>
+				 <p><b><a href=homepage.html>Return to Homepage</a></b></p>
+				 <br></br>
+				<div class="msg">{{ msg }}</div>
+				<!-- <p><center>Payment ID</center></p>
+				<input type="text" name="PaymentID" placeholder="PaymentID" class="textbox" id="PaymentID" required></br></br> -->
+				<p><b><center>Recipient ID</center></b></p>
+				<input type="text" name="RecipientID" placeholder="" class="textbox" id="RecipientID" required></br></br>
+				<p><b><center>Payment Date</center></b></p>
+				<input type="text" name="PaymentDate" placeholder="YYYY-MM-DD" class="textbox" id="PaymentDate" required></br></br>
+				<p><b><center>Payment Amount</center></b></p>
+				<input type="text" name="PaymentAmount" placeholder="" class="textbox" id="PaymentAmount" required></br></br>
+				<p><b><center>Scholarship ID</center></b></p>
+				<input type="text" name="ScholarshipID" placeholder="" class="textbox" id="ScholarshipID" required></br></br>            
+				<input type="submit" class="btn" value="Submit">
+				<br></br>
+				<br></br>
+				  </form>
+				</div>
+			</div>
+    </body>
+</html>
+

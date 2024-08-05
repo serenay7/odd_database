@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Recipient</title>
+        <link rel="stylesheet" href="../static/style.css">  
+		<meta content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+			<div class="registercontent" align="center">
+				<div class="registertop">
+					<h1>Add New Recipient</h1>
+				</div>
+				<div class="registerbottom">
+				  <form action="{{ url_for('newrecipient')}}" method="post" autocomplete="off">
+				 <br>
+				 <p><b><a href=homepage.html>Return to Homepage</a></b></p>
+				 <br>
+				 
+				<div class="msg">{{ msg }}</div>
+				
+				<p><b><center>Name</center></b></p>
+				<input type="text" name="Name" placeholder="" class="textbox" id="Name" required></br></br>
+				
+				<p><b><center>Address</center></b></p>
+				<input type="text" name="Address" placeholder="" class="textbox" id="Address" required></br></br>
+				
+				<p><b><center>Phone Number</center></b></p>
+				<input type="text" name="PhoneNumber" placeholder="" class="textbox" id="PhoneNumber" required></br></br>
+				
+				<p><b><center>Email</center></b></p>
+				<input type="email" name="Email" placeholder="xxx@yyy.zz" class="textbox" id="Email" required></br></br>
+				
+				<p><b><center>Department (initials)</center></b></p>
+				<input type="text" name="Department" placeholder="" class="textbox" id="Department" required></br></br>
+				
+				<p><b><center>Student ID</center></b></p>
+				<input type="text" name="StudentID" placeholder="" class="textbox" id="StudentID" required></br></br>
+				
+				<p><b><center>Citizen ID</center></b></p>
+				<input type="text" name="CitizenID" placeholder="" class="textbox" id="CitizenID" required></br></br>
+				
+				<p><b><center>First Payment Date</center></b></p>
+				<input type="text" name="FirstPaymentDate" placeholder="YYYY-MM-DD" class="textbox" id="FirstPaymentDate" required></br></br>
+				
+				<p><b><center>Branch No</center></b></p>
+				<input type="text" name="BranchNo" placeholder="" class="textbox" id="BranchNo" required></br></br>
+				
+				<p><b><center>Account No</center></b></p>
+				<input type="text" name="AccountNo" placeholder="" class="textbox" id="AccountNo" required></br></br>
+				
+				<p><b><center>IBAN</center></b></p>
+				<input type="text" name="IBAN" placeholder="TRxxx" class="textbox" id="IBAN" required></br></br>
+				
+				<!-- <p><b><center>Status</center></b></p>
+				<input type="text" name="Status" placeholder="Active/Passive" class="textbox" id="Status" required></br></br> -->
+				
+				<p><b><center>Status</center></b></p>
+				<input type="radio" id="active" name="Status" value="Active">
+				<label for="active">Active</label>
+				<input type="radio" id="passive" name="Status" value="Passive">
+				<label for="passive">Passive</label><br></br>
+				
+				<p><b><center>Scholarship ID</center></b></p>
+				<input type="text" name="ScholarshipID" placeholder="" class="textbox" id="ScholarshipID" required></br></br>  
+				
+				<input type="submit" class="btn" value="Submit">
+	
+				  </form>
+				</div>
+			</div>
+    </body>
+</html>
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Homepage</title>
+<meta charset="utf-8">
+<meta name="homepage" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="#" />
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  
+
+}
+
+/* Style the header */
+header {
+  background-color: #9d0208;
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 100vh;
+  //height: 1500px; /* only for demonstration, should be removed */
+  background: #8d99ae;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #edf2f4;
+  //height: 1500px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content {
+	display: flex;
+	flex: 1;
+	flex-direction: column:
+
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
+</head>
+<body>
+	<header>
+		<h2>ODTÜ ODD Database</h2>
+	</header>
+
+	<section class="content">
+	<nav>
+			<ul>
+			<li><b>Recipients ||</b>  <a href=newrecipient.html>Add</a> | <a href=recipient.html>Edit</a></li>
+			<li><b>Scholarship Programs ||</b> <a href=newscholarship.html>Add</a> | <a href=scholarship.html>Edit</a></li>
+			<li><b>Stipend Payments ||</b> <a href=newstipendpayment.html>Add</a> | <a href=payment.html>Edit</a></li>
+			<li><b>Donations ||</b> <a href=newdonation.html>Add</a> | <a href=donation.html>Edit</a></li>
+			<li><b>Donators ||</b> <a href=newdonator.html>Add</a> | <a href=donator.html>Edit</a></li>
+			<li><b>Members ||</b> <a href=newmember.html>Add</a> | <a href=member.html>Edit</a></li>
+			<li>Generate <b>monthly payment orders <a href=paymentordergeneration.html>here</a></b></li>
+			<li>Generate <b>reports <a href=reportmenu.html>here</a></b></li>
+			</ul>
+	</nav>
+  
+  <article>
+    <h1>Welcome to ODTÜ ODD Database!</h1>
+    <p>Here you can manage the ODD Database anytime from anywhere quickly.</p>
+    <p>
+		<ul>
+			<li><strong>Add:</strong> To add a new entry, click the add button next to the name of the table.</li>
+			<li><strong>Edit:</strong> There are 4 functions you can do under the editable table.
+				<ul>
+					<li><b>Search:</b> You can search for a text in cells using the search bar on the top-left of the page.</li>
+					<li><b>Sort:</b> You can sort each column (ascending and descending order) by clicking on the name of the column.</li>
+					<li><b>Edit:</b> You can edit values of cells by clicking on the cells.</li>
+					<li><b>Delete:</b> You can delete values of the cells by clicking on cells and deleting values. You can delete an entry by deleting the value x in the "Delete" column of that row.</li>
+				</ul>
+			</li>
+			<li><strong>Monthly Payment Orders:</strong> You can create payment orders for the months you specify under the monthly payment orders tab.</li>
+			<li><strong>Reports:</strong> You can see the types of reports you can create under the Reports tab and create the report you want by clicking on its name.</li>
+		</ul>
+	</p>
+	<p><i><center>-- This tool is created by Ege, Ekin, Pınar and Serenay with love. --</center></i></p>
+  </article>
+</section>
+
+</body>
+</html>
+

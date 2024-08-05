@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Generate Reports</title>
+        <link rel="stylesheet" href="../static/style.css">  
+		<meta content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="#" />
+    </head>
+    <body>
+			<div class="registercontent" align="center">
+				<div class="registertop">
+					<h1>Reports Menu</h1>
+					<h6>Choose which report you want to generate by clicking on its button.</h6>
+				</div>
+				<div class="registerbottom">
+				  <form action="{{ url_for('reportmenu')}}" method="post" autocomplete="off">
+				  <br></br>
+				  <p><b><a href=homepage.html>Return to Homepage</a></b></p>
+				  <br></br>
+				  <div class="btn"><a href=scholarshipreport.html style="color:white">Total monthly scholarship payments for a selected time period and selected
+scholarship program</a></div>
+				  <br></br>
+				  <div class="btn"><a href=donationsreport.html style="color:white">Total monthly donations received for a selected time period and selected
+scholarship programs</a></div>
+				  <br></br>
+				  <div class="btn"><a href=numofrecipients.html style="color:white">The number of scholarship recipients for each month in a selected time period</a></div>
+				  <br></br>
+				  <div class="btn"><a href=totalnumofrecipients.html style="color:white">The total number of scholarship recipients in each department for the current
+time period.</a></div>
+				  <br></br>
+				  <div class="btn"><a href=donatorspaid.html style="color:white">Donators and the amount each donator paid in a time period and scholarship
+program</a></div>
+				  <br></br>
+				  </form>
+				</div>
+			</div>
+    </body>
+</html>

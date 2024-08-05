@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Donation </title>
+        <link rel="stylesheet" href="../static/style.css">   
+		<meta content="width=device-width, initial-scale=1">	
+<link rel="shortcut icon" href="#" />		
+    </head>
+    <body>
+			<div class="registercontent" align="center">
+				<div class="registertop">
+					<h1>Add New Donation</h1>
+				</div>
+				<div class="registerbottom">
+				  <form action="{{ url_for('newdonation')}}" method="post" autocomplete="off">
+				  <br></br>
+				 <p><b><a href=homepage.html>Return to Homepage</a></b></p>
+				 <br></br>
+				<div class="msg">{{ msg }}</div>
+				<!-- <p><center>Donation ID</center></p>
+				<input type="text" name="DonationID" placeholder="DonationID" class="textbox" id="DonationID" required></br></br> -->
+				<p><b><center>Amount Received</center></b></p>
+				<input type="text" name="AmountReceived" placeholder="" class="textbox" id="AmountReceived" required></br></br>
+				<p><b><center>Donator ID</center></b></p>
+				<input type="text" name="DonatorID" placeholder="" class="textbox" id="DonatorID" required></br></br>
+				<p><b><center>Payment Date</center></b></p>
+				<input type="text" name="PaymentDate" placeholder="YYYY-MM-DD" class="textbox" id="PaymentDate" required></br></br>
+				<p><b><center>Scholarship ID</center></b></p>
+				<input type="text" name="ScholarshipID" placeholder="" class="textbox" id="ScholarshipID" required></br></br>            
+				<input type="submit" class="btn" value="Submit">
+				<br></br>
+				<br></br>
+				  </form>
+				</div>
+			</div>
+    </body>
+</html>
+

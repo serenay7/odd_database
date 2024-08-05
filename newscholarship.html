@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Recipient</title>
+        <link rel="stylesheet" href="../static/style.css">
+		<meta content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="#" />
+    </head>
+    <body>
+			<div class="registercontent" align="center">
+				<div class="registertop">
+					<h1>Add New Scholarship</h1>
+				</div>
+				<div class="registerbottom">
+				  <form action="{{ url_for('newscholarship')}}" method="post" autocomplete="off">
+				  <br></br>
+				 <p><b><a href=homepage.html>Return to Homepage</a></b></p>
+				 <br></br>
+				<div class="msg">{{ msg }}</div>
+				<!-- <p><center>Scholarship ID</center></p>
+				<input type="text" name="ScholarshipID" placeholder="ScholarshipID" class="textbox" id="ScholarshipID" required></br></br> -->
+				<p><b><center>Name</center></b></p>
+				<input type="text" name="Name" placeholder="" class="textbox" id="Name" required></br></br>
+				<p><b><center>Monthly Stipend Payment</center></b></p>
+				<input type="text" name="MonthlyStipendPayment" placeholder="" class="textbox" id="MonthlyStipendPayment" required></br></br>
+				<!-- <p><center>Status</center></p>
+				<input type="text" name="Status" placeholder="Status" class="textbox" id="Status" required></br></br> -->
+				<p><b><center>Status</center></b></p>
+				<input type="radio" id="active" name="Status" value="Active">
+				<label for="active">Active</label>
+				<input type="radio" id="passive" name="Status" value="Passive">
+				<label for="passive">Passive</label><br></br>
+				<p><b><center>Detailed Description</center></b></p>
+				<input type="text" name="DetailedDescription" placeholder="" class="textbox" id="DetailedDescription" required></br></br>            
+				<input type="submit" class="btn" value="Submit">
+				<br></br>
+				<br></br>
+				  </form>
+				</div>
+			</div>
+    </body>
+</html>
+

@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Generate Monthly Payment Order</title>
+        <link rel="stylesheet" href="../static/style.css">       
+		<meta content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+			<div class="registercontent" align="center">
+				<div class="registertop">
+					<h1>Generate Monthly Payment Order</h1>
+					<h6>You can create a txt file for monthly payment orders by filling the boxes here. First use the submit button to save your input, then use the download button.</h6>
+				</div>
+				<br></br>
+				 <p><b><a href=homepage.html>Return to Homepage</a></b></p>
+				 <br></br>
+				<div class="registerbottom">
+				  <form action="{{ url_for('paymentordergeneration')}}" method="post" autocomplete="off">
+				<div class="msg">{{ msg }}</div>
+				<br>
+				<p><b><center>Month to be Queried</center></b></p>
+				<input type="text" name="Month" placeholder="2" class="textbox" id="Month" required></br></br>
+				
+				<p><b><center>Bank Customer Number</center></b></p>
+				<input type="text" name="BankCustomerNumber" placeholder="4816479" class="textbox" id="BankCustomerNumber"></br></br>
+				
+				<p><b><center>Customer Title</center></b></p>
+				<input type="text" name="CustomerTitle" placeholder="ODTÜ Öğrenci Destekleme Derneği" class="textbox" id="CustomerTitle"></br></br>
+				
+				<p><b><center>Customer IBAN</center></b></p>
+				<input type="text" name="CustomerIBAN" placeholder="TR880006400000142290431827" class="textbox" id="CustomerIBAN" ></br></br>
+				
+				<p><b><center>Currency</center></b></p>
+				<input type="text" name="Currency" placeholder="TRY" class="textbox" id="Currency" ></br></br>
+				
+				<p><b><center>Transaction Date</center></b></p>
+				<input type="date" name="TransactionDate" id="TransactionDate" required></br></br>
+				
+				<p><b><center>Transaction Time</center></b></p>
+				<input type="text" name="TransactionTime" placeholder="HH:MM" class="textbox" id="TransactionTime" required></br></br>
+				
+				<p><b><center>Transaction Type</center></b></p>
+				<input type="text" name="TransactionType" placeholder="HAVALE" class="textbox" id="TransactionType" ></br></br>
+				
+				<p><b><center>Customer Address</center></b></p>
+				<input type="text" name="CustomerAddress" placeholder="ODTÜ Endüstri Mühendisliği Bölümü" class="textbox" id="CustomerAddress" ></br></br>
+				
+				<p><b><center>City Code</center></b></p>
+				<input type="text" name="CityCode" placeholder="006" class="textbox" id="CityCode" ></br></br>
+				
+				<p><b><center>Payment Order File Folder</center></b></p>
+				<input type="text" name="PaymentOrderFileFolder" placeholder="C:\Users\Sinan\Desktop" class="textbox" id="PaymentOrderFileFolder" ></br></br>
+				
+				<input type="submit" class="btn" value="Submit">
+				
+				<input type="button" class="btn" value="Download CSV File" onclick="DownloadFile('payments.txt')" /></br></br>
+				<script type="text/javascript">
+					function DownloadFile(fileName) {
+						//Set the File URL.
+						var url = "csv/" + fileName;
+			 
+						//Create XMLHTTP Request.
+						var req = new XMLHttpRequest();
+						req.open("GET", url, true);
+						req.responseType = "blob";
+						req.onload = function () {
+							//Convert the Byte Data to BLOB object.
+							var blob = new Blob([req.response], { type: "application/octetstream" });
+			 
+							//Check the Browser type and download the File.
+							var isIE = false || !!document.documentMode;
+							if (isIE) {
+								window.navigator.msSaveBlob(blob, fileName);
+							} else {
+								var url = window.URL || window.webkitURL;
+								link = url.createObjectURL(blob);
+								var a = document.createElement("a");
+								a.setAttribute("download", fileName);
+								a.setAttribute("href", link);
+								document.body.appendChild(a);
+								a.click();
+								document.body.removeChild(a);
+							}
+						};
+						req.send();
+					};
+				</script>
+				<br></br>
+				<br></br>
+				  </form>
+				</div>
+			</div>
+    </body>
+</html>
